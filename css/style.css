@@ -7,6 +7,8 @@
     --dark: #282828;
     --dark-blue: #141922;
     --grey: #6D6D6D;
+    --light-grey: #D2D2D2;
+    --light-green: #ADFF2F;
 }
 
 /* ! Regole Reset */
@@ -21,7 +23,22 @@ img {
     width: 100%;
 }
 
+a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+ul,
+ol,
+menu {
+    list-style-type: none;
+}
+
 /* ! Regole Layout */
+body {
+    font-family: "Arial", sans-serif;
+}
+
 main {
     height: 100vh;
 }
@@ -40,6 +57,8 @@ main.row {
 }
 
 .toolbar-wrapper {
+    position: relative;
+    z-index: 1;
     flex-basis: 90px;
     flex-grow: 0;
     background-color: var(--dark);
@@ -67,14 +86,124 @@ main.row {
 
 /* ! Header */
 .main-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.0625rem;
+    height: 100%;
     color: var(--grey);
+    font-size: 0.8125rem;
+    font-weight: bold;
+}
+
+.logo.logo--small {
+    padding: 0.3125rem 0.6875rem 0;
 }
 
 .logo.logo--big {
     display: none;
+    width: 80%;
+    padding: 1.25rem 1.25rem 0;
 }
 
+.main-header .item.item--active img,
+.main-header .item:hover .item__icon img {
+    filter: brightness(1);
+}
 
+/* ! Main Nav */
+.main-nav {
+    width: 100%;
+}
+
+.main-nav__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9375rem;
+}
+
+.main-nav__menu .item a {
+    display: flex;
+    align-items: center;
+    gap: 0.5625rem;
+}
+
+.main-nav__menu .item__icon img {
+    width: 22px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.6);
+}
+
+.main-nav__menu .item__text {
+    display: none;
+}
+
+/* ! Playlist */
+.playlist {
+    display: none;
+}
+
+/* ! Main Header Bottom */
+.main-header__bottom {
+    width: 100%;
+    margin-top: auto;
+    padding-inline: 1.4375rem;
+}
+
+/* ! Install */
+.install__link {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding-bottom: 0.9375rem;
+}
+
+.install__link:hover {
+    color: #fff;
+}
+
+.install__icon {
+    width: 20px;
+    aspect-ratio: 1/1;
+    filter: brightness(0.6);
+}
+
+.install__link:hover .install__icon {
+    filter: brightness(1);
+}
+
+.install__text {
+    display: none;
+}
+
+/* ! Profile */
+.profile {
+    padding-block: 0.9375rem 0;
+    margin-bottom: 0.5rem;
+}
+
+.profile__link {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 0.9375rem;
+    color: #fff;
+}
+
+.profile__icon {
+    width: 25px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--grey);
+    overflow: hidden;
+}
+
+.profile__text {
+    display: none;
+}
 
 /* ! Toolbar */
 
@@ -97,6 +226,84 @@ main.row {
 
     .logo.logo--small {
         display: none;
+    }
+
+    .main-header .item:hover {
+        color: #fff;
+    }
+
+    /* ! Main Nav */
+    .main-nav__menu {
+        align-items: flex-start;
+        gap: 0;
+    }
+
+    .main-nav__menu .item {
+        padding: 0.4375rem 0 0.4375rem 1.25rem;
+        border-left: 3px solid transparent;
+    }
+
+    .main-nav__menu .item__text {
+        display: inline-block;
+    }
+
+    .main-nav__menu .item.item--active {
+        border-left-color: var(--light-green);
+        color: var(--light-grey);
+        font-weight: 800;
+    }
+
+    /* ! Playlist */
+    .playlist-wrapper {
+        flex-grow: 1;
+        width: 100%;
+        padding-left: 1.4375rem;
+        overflow-y: auto;
+    }
+
+    .playlist__title {
+        margin-bottom: 0.9375rem;
+        font-size: 0.875rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fff;
+    }
+
+    .playlist {
+        display: flex;
+        flex-direction: column;
+        gap: 1.4375rem;
+    }
+
+    .playlist--create a {
+        display: flex;
+        align-items: center;
+        gap: 0.6875rem;
+        font-size: 0.9375rem;
+    }
+
+    .playlist--create i {
+        display: flex;
+        width: 37px;
+        aspect-ratio: 1/1;
+        background-color: var(--grey);
+        color: #000;
+        font-size: 18px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .main-header .playlist--create:hover i {
+        background-color: #fff;
+    }
+
+    .install__link {
+        border-bottom: 1px solid var(--grey);
+    }
+
+    .install__text,
+    .profile__text {
+        display: inline-block;
     }
 
 }
