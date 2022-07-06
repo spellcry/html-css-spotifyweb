@@ -1,0 +1,75 @@
+/* -------------------------------------------------------------------------------- */
+/* ! MOBILE */
+/* -------------------------------------------------------------------------------- */
+
+/* ! Variabili */
+:root {
+    --dark: #282828;
+    --dark-blue: #141922;
+}
+
+/* ! Regole Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+/* ! Regole Layout */
+main {
+    height: 100vh;
+}
+
+.row {
+    display: flex;
+}
+
+main.row {
+    flex-direction: column;
+}
+
+.col {
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+.toolbar-wrapper {
+    flex-basis: 90px;
+    flex-grow: 0;
+    background-color: var(--dark);
+}
+
+.content-wrapper {
+    max-height: calc(100vh - 90px);
+}
+
+.content-wrapper>.row {
+    height: 100%;
+}
+
+.content-wrapper .col:first-child {
+    flex-basis: 230px;
+    flex-grow: 0;
+    background-color: #000;
+}
+
+.main-content {
+    height: 100%;
+    background-color: var(--dark-blue);
+    overflow-y: auto;
+}
+
+.test {
+    height: 2000px;
+}
+
+/* ! Header */
+
+/* ! Toolbar */
+
+/* ! Main Content */
