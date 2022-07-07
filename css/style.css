@@ -9,6 +9,7 @@
     --grey: #6D6D6D;
     --light-grey: #D2D2D2;
     --light-green: #ADFF2F;
+    --toolbar-height: 90px;
 }
 
 /* ! Regole Reset */
@@ -59,13 +60,13 @@ main.row {
 .toolbar-wrapper {
     position: relative;
     z-index: 1;
-    flex-basis: 90px;
+    flex-basis: var(--toolbar-height);
     flex-grow: 0;
     background-color: var(--dark);
 }
 
 .content-wrapper {
-    max-height: calc(100vh - 90px);
+    max-height: calc(100vh - var(--toolbar-height));
 }
 
 .content-wrapper>.row {
@@ -142,7 +143,7 @@ main.row {
 }
 
 /* ! Playlist */
-.playlist {
+.playlist-wrapper {
     display: none;
 }
 
@@ -255,6 +256,7 @@ main.row {
 
     /* ! Playlist */
     .playlist-wrapper {
+        display: block;
         flex-grow: 1;
         width: 100%;
         padding-left: 1.4375rem;
