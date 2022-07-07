@@ -10,6 +10,7 @@
     --light-grey: #D2D2D2;
     --light-green: #ADFF2F;
     --toolbar-height: 90px;
+    --header--width: 230px;
 }
 
 /* ! Regole Reset */
@@ -62,6 +63,8 @@ main.row {
     z-index: 1;
     flex-basis: var(--toolbar-height);
     flex-grow: 0;
+    max-height: var(--toolbar-height);
+    overflow-y: hidden;
     background-color: var(--dark);
 }
 
@@ -207,6 +210,177 @@ main.row {
 }
 
 /* ! Toolbar */
+.toolbar {
+    height: 100%;
+}
+
+.toolbar .col:first-child {
+    padding-left: 0.625rem;
+}
+
+.toolbar .col:last-child {
+    padding-right: 0.625rem;
+}
+
+.toolbar .col:nth-child(2) {
+    padding-inline: 0.625rem;
+}
+
+/* ! Toolbar Song */
+.toolbar__song {
+    display: flex;
+    flex-basis: 100%;
+    gap: 0.75rem;
+    color: var(--grey);
+}
+
+.toolbar__song a:hover {
+    color: #fff;
+}
+
+.toolbar__song .info__song-name a:hover {
+    text-decoration: underline;
+}
+
+.toolbar .col:first-child,
+.toolbar .col:last-child,
+.toolbar__song .song__info,
+.toolbar__song .song__action {
+    display: flex;
+    align-items: center;
+}
+
+.song__img img {
+    width: 42px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+}
+
+.toolbar__song .song__info {
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+.toolbar__song .song__info>* {
+    flex-basis: 100%;
+}
+
+.toolbar__song .info__author {
+    font-size: 0.8125rem;
+    color: #fff;
+}
+
+.toolbar__song .info__song-name {
+    font-size: 0.625rem;
+}
+
+.toolbar__song .song__action {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ! Volume & Duration Bar */
+.bar {
+    position: relative;
+    height: 4px;
+    border-radius: 2px;
+    flex-grow: 1;
+    background-color: var(--grey);
+}
+
+.bar:hover:before {
+    background-color: var(--light-green);
+}
+
+.bar:hover:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    width: 10px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: #fff;
+    transform: translate(-50%, -50%);
+}
+
+.bar:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+    border-radius: 2px;
+    background-color: var(--light-grey);
+}
+
+/* ! Toolbar Settings */
+.toolbar__settings {
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.toolbar__settings a {
+    color: #fff;
+}
+
+/* ! Toolbar player */
+.toolbar__player,
+.toolbar__player a {
+    color: #fff;
+}
+
+.toolbar__player .controls {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding-top: 0.75rem;
+    margin-bottom: 1rem;
+    width: fit-content;
+    margin-inline: auto;
+}
+
+.toolbar__player .controls__play-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    aspect-ratio: 1/1;
+    padding-left: 0.2rem;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+
+.toolbar__player .controls__play-link:hover .controls__play-icon {
+    transform: scale(1.1);
+}
+
+.toolbar__player .duration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 992px;
+    margin-inline: auto;
+}
+
+.toolbar__player .duration__bar {
+    flex-basis: 60%;
+    flex-grow: 0;
+    margin-inline: 2vw;
+}
+
+.toolbar__player .duration__bar::before {
+    width: 11%;
+}
+
+.toolbar__player .duration__bar::after {
+    left: 11%;
+}
 
 /* ! Main Content */
 
@@ -217,7 +391,7 @@ main.row {
 
     /* ! Regole layout */
     .content-wrapper .col:first-child {
-        flex-basis: 230px;
+        flex-basis: var(--header--width);
     }
 
     /* ! Header */
@@ -308,15 +482,38 @@ main.row {
         display: inline-block;
     }
 
+    /* ! Toolbar */
+    .toolbar .col:first-child,
+    .toolbar .col:last-child {
+        flex-basis: var(--header--width);
+        flex-grow: 0;
+    }
+
+    /* ! Toolbar Settings */
+    .toolbar__settings {
+        gap: 0.875rem;
+    }
+
 }
 
 /* -------------------------------------------------------------------------------- */
 /* ! Mid */
 /* -------------------------------------------------------------------------------- */
-@media (min-width: 878px) {}
+@media (min-width: 878px) {
 
+    /* ! Toolbar Song*/
+    .toolbar__song .song__action {
+        flex-direction: row;
+        gap: 0.75rem;
+        justify-content: flex-start;
+    }
 
+    /* ! Toolbar Settings */
+    .toolbar__settings {
+        gap: 1.0625rem;
+    }
 
+}
 
 /* -------------------------------------------------------------------------------- */
 /* ! Large */
