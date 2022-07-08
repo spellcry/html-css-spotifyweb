@@ -703,6 +703,7 @@ main.row {
     }
 
     .main-nav__menu .item {
+        width: 100%;
         padding: 0.4375rem 0 0.4375rem 1.25rem;
         border-left: 3px solid transparent;
     }
