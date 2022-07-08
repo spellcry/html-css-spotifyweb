@@ -349,7 +349,7 @@ main.row {
 .toolbar__player .controls {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
+    gap: 2vw;
     padding-top: 0.75rem;
     margin-bottom: 1rem;
     width: fit-content;
