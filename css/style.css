@@ -305,7 +305,7 @@ main.row {
     background-color: var(--light-green);
 }
 
-.bar:hover:after {
+.bar:after {
     content: "";
     position: absolute;
     top: 50%;
@@ -314,7 +314,12 @@ main.row {
     aspect-ratio: 1/1;
     border-radius: 50%;
     background-color: #fff;
+    opacity: 0;
     transform: translate(-50%, -50%);
+}
+
+.bar:hover:after {
+    opacity: 1;
 }
 
 .bar:before {
@@ -385,12 +390,116 @@ main.row {
     margin-inline: 2vw;
 }
 
+/* ! Bar Animation */
+@keyframes bar-scrolling {
+    from {
+        width: 0%;
+    }
+
+    10% {
+        width: 10%;
+    }
+
+    20% {
+        width: 20%;
+    }
+
+    30% {
+        width: 30%;
+    }
+
+    40% {
+        width: 40%;
+    }
+
+    50% {
+        width: 50%;
+    }
+
+    60% {
+        width: 60%;
+    }
+
+    70% {
+        width: 70%;
+    }
+
+    80% {
+        width: 80%;
+    }
+
+    90% {
+        width: 90%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes circle-scrolling {
+    from {
+        left: 0%;
+    }
+
+    10% {
+        left: 10%;
+    }
+
+    20% {
+        left: 20%;
+    }
+
+    30% {
+        left: 30%;
+    }
+
+    40% {
+        left: 40%;
+    }
+
+    50% {
+        left: 50%;
+    }
+
+    60% {
+        left: 60%;
+    }
+
+    70% {
+        left: 70%;
+    }
+
+    80% {
+        left: 80%;
+    }
+
+    90% {
+        left: 90%;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+
 .toolbar__player .duration__bar::before {
-    width: 11%;
+    width: 0%;
+    animation: bar-scrolling 5s linear infinite paused forwards;
 }
 
 .toolbar__player .duration__bar::after {
-    left: 11%;
+    left: 0%;
+    animation: circle-scrolling 5s linear infinite paused forwards;
+}
+
+.toolbar__player .duration__bar:hover::before {
+    animation-play-state: running;
+}
+
+.toolbar__player .duration__bar:hover::after {
+    animation-play-state: running;
 }
 
 /* ! Main Content */
