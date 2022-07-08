@@ -301,29 +301,7 @@ main.row {
     background-color: var(--grey);
 }
 
-.bar:hover:before {
-    background-color: var(--light-green);
-}
-
-.bar:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 30%;
-    width: 10px;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    background-color: #fff;
-    opacity: 0;
-    transform: translate(-50%, -50%);
-}
-
-.bar:hover:after {
-    opacity: 1;
-}
-
-.bar:before {
-    content: "";
+.bar__progress {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -331,6 +309,26 @@ main.row {
     width: 30%;
     border-radius: 2px;
     background-color: var(--light-grey);
+}
+
+.bar:hover .bar__progress {
+    background-color: var(--light-green);
+}
+
+.progress__dot {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 10px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0;
+    transform: translate(50%, -50%);
+}
+
+.bar:hover .progress__dot {
+    opacity: 1;
 }
 
 /* ! Toolbar Settings */
@@ -437,68 +435,12 @@ main.row {
     }
 }
 
-@keyframes circle-scrolling {
-    from {
-        left: 0%;
-    }
-
-    10% {
-        left: 10%;
-    }
-
-    20% {
-        left: 20%;
-    }
-
-    30% {
-        left: 30%;
-    }
-
-    40% {
-        left: 40%;
-    }
-
-    50% {
-        left: 50%;
-    }
-
-    60% {
-        left: 60%;
-    }
-
-    70% {
-        left: 70%;
-    }
-
-    80% {
-        left: 80%;
-    }
-
-    90% {
-        left: 90%;
-    }
-
-    to {
-        left: 100%;
-    }
-}
-
-
-.toolbar__player .duration__bar::before {
+.toolbar__player .duration__bar .bar__progress {
     width: 0%;
     animation: bar-scrolling 5s linear infinite paused forwards;
 }
 
-.toolbar__player .duration__bar::after {
-    left: 0%;
-    animation: circle-scrolling 5s linear infinite paused forwards;
-}
-
-.toolbar__player .duration__bar:hover::before {
-    animation-play-state: running;
-}
-
-.toolbar__player .duration__bar:hover::after {
+.toolbar__player .duration__bar:hover .bar__progress {
     animation-play-state: running;
 }
 
